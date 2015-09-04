@@ -279,6 +279,14 @@ class GlobusOnlineRestClient(object):
             'invited',
             'Only invited users can accept an invitation.')
 
+    def remove_group_member(self, gid, username, status_reason=None):
+        return self._put_membership_status_wrapper(
+            gid,
+            username,
+            'rejected',
+            'active',
+            'Only active users can be removed.')
+
     def reject_invitation(self, gid, username, status_reason=None):
         return self._put_membership_status_wrapper(
             gid,
