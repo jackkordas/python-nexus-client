@@ -530,10 +530,11 @@ class GlobusOnlineRestClient(object):
 
         http = httplib2.Http(disable_ssl_certificate_validation=True, timeout=10)
 
-        url = 'https://' + self.server + path
+        url = 'https://' + self.server + "/service/graph" + path
         headers = {}
         headers['Content-Type'] = content_type
         headers['Accept'] = accept
+        # headers['X-Go-Community-Context'] = 'computecanada'
         # Use OAuth authentication, session cookies, or no authentication?
         if use_session_cookies:
             if self.session_cookies:
